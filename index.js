@@ -4,6 +4,10 @@ const port = process.env.PORT | 3000
 
 const cities = require('./assets/city.list.json')
 
+app.get('/', (req, res) => {
+    res.send("Welcome to simple city api!");
+})
+
 app.get('/:city', (req, res) => {
     const MAX_RESULTS = 5;
     let results = 0;
@@ -15,7 +19,7 @@ app.get('/:city', (req, res) => {
         }
         return false;
     });
-    
+
     res.json(cityList);
 })
 
